@@ -1,0 +1,54 @@
+<?php
+
+use Form\LoginForm;
+
+/** @var  $loginForm LoginForm */
+
+$loginForm = $this->loginForm;
+?>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5">
+                <div class="card-header btn-primary  text-white">
+                    <h2 class="mb-0">Login Team Capacity</h2>
+                </div>
+                <div class="card-body">
+                    <?php if (!empty($this->errorMessage)) : ?>
+                        <div class="alert alert-danger">
+                            <p><?= $this->escapeHtml($this->errorMessage) ?></p>
+                        </div>
+                    <?php endif; ?>
+            <?= $this->form()->openTag($loginForm); ?>
+            <div class="mb-3">
+                <?= $this->formLabel($loginForm->get('name')) ?>
+                <?= $this->formElement($loginForm->get('name')) ?>
+                <div id="emailHelp" class="form-text">Please write your JIRA Login Username</div>
+            </div>
+
+            <div class="mb-3">
+                <?= $this->formLabel($loginForm->get('jiraPassword')) ?>
+                <?= $this->formElement($loginForm->get('jiraPassword')) ?>
+            </div>
+
+            <div class="mb-3">
+                <?= $this->formLabel($loginForm->get('hawkID')) ?>
+                <?= $this->formElement($loginForm->get('hawkID')) ?>
+            </div>
+
+            <div class="mb-3">
+                <?= $this->formLabel($loginForm->get('hawkAuthKey')) ?>
+                <?= $this->formElement($loginForm->get('hawkAuthKey')) ?>
+            </div>
+
+            <div class="mb-3 form-check">
+                <?= $this->formLabel($loginForm->get('checkMeOut')) ?>
+                <?= $this->formElement($loginForm->get('checkMeOut')) ?>
+            </div>
+
+            <?= $this->formElement($loginForm->get('submit')) ?>
+
+            <?= $this->form()->closeTag($loginForm); ?>
+        </div>
+    </div>
+</div>

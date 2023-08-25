@@ -1,0 +1,61 @@
+<?php
+
+use Form\InfoForm;
+use Laminas\Config\Config;
+
+/** @var $config Config */
+/** @var $infoForm InfoForm */
+
+$teamCapacity = $this->teamCapacity;
+$infoForm = $this->infoForm;
+
+?>
+
+<?php
+$searchForm = $this->searchForm;
+?>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card mt-3">
+                <div class="card-header btn-primary  text-white">
+                    <h2 class="mb-0"><?= $this->escapeHtml($this->translate('Team Capacity')); ?></h2>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <p><?= $infoForm->getThead() ?></p>
+                        <tbody class="table-group-divider">
+                        <?php
+                        $sum = 0;
+                        $num = 1;
+                        foreach ($teamCapacity as $devCap) {
+                            if ($devCap['specialty'] === 'backend') {
+                                echo $infoForm->getTbody($num, $devCap);
+                                $sum += $devCap['SP'];
+                                $num +=1;
+                            }
+                        }
+                        echo $infoForm->getSumTr($sum);
+                        ?>
+                        </tbody>
+                        <tbody class="table-group-divider">
+                        <?php
+                        $sum = 0;
+                        $num = 1;
+                        foreach ($teamCapacity as $devCap) {
+                            if ($devCap['specialty'] === 'frontend') {
+                                echo $infoForm->getTbody($num, $devCap);
+                                $sum += $devCap['SP'];
+                                $num +=1;
+                            }
+                        }
+                        echo $infoForm->getSumTr($sum);
+                        ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

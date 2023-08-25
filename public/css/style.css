@@ -1,0 +1,21 @@
+:root {
+    --brand-color: #013755;
+}
+
+.navbar {
+    background-color: var(--brand-color);
+}
+
+.btn-primary {
+    background-color: var(--brand-color);
+    border-color: var(--brand-color);
+}
+.custom-card-header {
+    background-color: var(--brand-color);
+    color: #013775;
+}
+
+.container-custom {
+    padding-top: 0;
+    margin-top: 0;
+}

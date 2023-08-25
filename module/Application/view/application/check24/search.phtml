@@ -1,0 +1,46 @@
+<?php
+$searchForm = $this->searchForm;
+?>
+
+<div class="container container-custom">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card mt-0">
+                <div class="card-header btn-primary  text-white">
+                    <h2 class="mb-0"><?= $this->escapeHtml($this->translate('Select the Developers')); ?></h2>
+                </div>
+                <div class="card-body">
+                    <?= $this->form()->openTag($searchForm); ?>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 class="mb-3"><?= $this->escapeHtml($this->translate('Backend Developers')); ?></h4>
+                            <?php foreach ($searchForm as $element):
+                                if ($element->getAttribute('specialty') === 'backend' && $element instanceof Laminas\Form\Element\Checkbox): ?>
+                                    <div class="form-check">
+                                        <?= $this->formElement($element) ?>
+                                        <?= $this->formLabel($element) ?>
+                                    </div>
+                                <?php endif;
+                            endforeach ?>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="mb-3"><?= $this->escapeHtml($this->translate('Frontend Developers')); ?></h4>
+                            <?php foreach ($searchForm as $element):
+                                if ($element->getAttribute('specialty') === 'frontend' && $element instanceof Laminas\Form\Element\Checkbox): ?>
+                                    <div class="form-check">
+                                        <?= $this->formElement($element) ?>
+                                        <?= $this->formLabel($element) ?>
+                                    </div>
+                                <?php endif;
+                            endforeach ?>
+                        </div>
+                    </div>
+                    <div class="form-group mt-4 mb-3">
+                        <?= $this->formElement($searchForm->get('Submit')) ?>
+                    </div>
+                    <?= $this->form()->closeTag($searchForm); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
