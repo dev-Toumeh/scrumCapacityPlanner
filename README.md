@@ -84,4 +84,5 @@ abgeschlossen werden, wo keine Schätzung abgegeben wurde.
 - Add controller to logout  
 - Need to work on Unit Test  
 - Refactoring  
-  - Fuctions in SearchController for example (getTeamCapacity(), getCapacityProDeveloper() ) need to move out to services 
+  - Fuctions in SearchController for example (getTeamCapacity(), getCapacityProDeveloper() ) need to move out to services
+  - Add Docker file
